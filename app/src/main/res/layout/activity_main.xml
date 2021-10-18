@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.applicationreachtest.ui.MainActivityViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_8">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/spinner_country"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/rectangle"
+                android:gravity="start|center"
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint="@string/select_country"
+                android:paddingStart="@dimen/dp_8"
+                android:paddingEnd="@dimen/dp_8"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/spinner_state"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/rectangle"
+                android:hint="@string/select_state"
+                android:paddingStart="@dimen/dp_8"
+                android:paddingEnd="@dimen/dp_8"
+                android:textColor="@color/black"
+                android:gravity="start|center"
+                android:textColorHint="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_country" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/spinner_disc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/rectangle"
+                android:hint="@string/select_district"
+                android:paddingStart="@dimen/dp_8"
+                android:paddingEnd="@dimen/dp_8"
+                android:textColor="@color/black"
+                android:gravity="start|center"
+                android:textColorHint="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_state" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/spinner_taluk"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/rectangle"
+                android:hint="@string/select_taluk"
+                android:textColor="@color/black"
+                android:paddingStart="@dimen/dp_8"
+                android:paddingEnd="@dimen/dp_8"
+                android:gravity="start|center"
+                android:textColorHint="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_disc" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/spinner_village"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/rectangle"
+                android:hint="@string/select_village"
+                android:paddingStart="@dimen/dp_8"
+                android:paddingEnd="@dimen/dp_8"
+                android:textColor="@color/black"
+                android:gravity="start|center"
+                android:textColorHint="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_taluk" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"
+                app:mutableVisibility="@{viewModel.getLoadingVisibility()}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
